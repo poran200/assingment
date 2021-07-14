@@ -14,10 +14,7 @@
         <property name="hibernate.format_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">create-drop</property>
         <property name="connection.pool_size">20</property>
-        <mapping class="model.Student"/>
-        <mapping class="model.Class"/>
-
-
-
+        <mapping class="assingment.javafx.model.Student"/>
+        <mapping class="assingment.javafx.model.Class"/>
     </session-factory>
 </hibernate-configuration>

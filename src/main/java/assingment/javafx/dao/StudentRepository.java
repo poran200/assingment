@@ -1,18 +1,17 @@
-package dao;/*
+package assingment.javafx.dao;/*
  * @created 7/11/2021
  *
  * @Author Poran chowdury
  */
 
-import model.Student;
+import assingment.javafx.model.Student;
+import assingment.javafx.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-
-import static util.HibernateUtil.getSessionFactory;
 
 public class StudentRepository implements CRUDDAO<Student, Integer> {
 
@@ -22,7 +21,7 @@ public class StudentRepository implements CRUDDAO<Student, Integer> {
     @Override
     public Student save(Student student) {
         try {
-            session = getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             transaction = session.beginTransaction();
             session.save(student);
             transaction.commit();
@@ -37,43 +36,43 @@ public class StudentRepository implements CRUDDAO<Student, Integer> {
 
     @Override
     public Optional<Student> findById(Integer id) {
-        session = getSessionFactory().openSession();
+        session = HibernateUtil.getSessionFactory().openSession();
         transaction = session.beginTransaction();
-      try {
-          Student query = session.find(Student.class, id);
-          transaction.commit();
-          return Optional.ofNullable(query);
-      }catch (Exception e){
-          e.printStackTrace();
-          closeTransaction();
-      }finally {
-          closeSession();
-      }
-      return Optional.empty();
+        try {
+            Student query = session.find(Student.class, id);
+            transaction.commit();
+            return Optional.ofNullable(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+            closeTransaction();
+        } finally {
+            closeSession();
+        }
+        return Optional.empty();
     }
 
     @Override
     public List<Student> findAll() {
-        session = getSessionFactory().openSession();
+        session = HibernateUtil.getSessionFactory().openSession();
         transaction = session.beginTransaction();
-        try{
-            List<Student> resultList =(List<Student>) session.createQuery("from " + Student.class.getSimpleName()).getResultList();
+        try {
+            List<Student> resultList = (List<Student>) session.createQuery("from " + Student.class.getSimpleName()).getResultList();
             transaction.commit();
             return resultList;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             closeTransaction();
-        }finally {
+        } finally {
             closeSession();
         }
 
-       return Collections.emptyList();
+        return Collections.emptyList();
     }
 
     @Override
 
     public Student update(Integer id, Student student) {
-        session = getSessionFactory().openSession();
+        session = HibernateUtil.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         try {
             Student updateStudent = session.find(Student.class, id);
@@ -94,7 +93,7 @@ public class StudentRepository implements CRUDDAO<Student, Integer> {
 
     @Override
     public boolean deleteById(Integer id) {
-        session = getSessionFactory().openSession();
+        session = HibernateUtil.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         try {
             session.createQuery("delete from " + Student.class.getSimpleName() + " where role=:role")

@@ -1,4 +1,4 @@
-package util;/*
+package assingment.javafx.util;/*
  * @created 7/11/2021
  *
  * @Author Poran chowdury
@@ -15,10 +15,6 @@ public class HibernateUtil {
     private static final HibernateUtil INSTANCE = new HibernateUtil();
     private static SessionFactory sessionFactory;
 
-    public static SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
-
     private HibernateUtil() {
 
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
@@ -28,5 +24,9 @@ public class HibernateUtil {
         Metadata metadata = new MetadataSources(serviceRegistry).getMetadataBuilder().build();
 
         sessionFactory = metadata.buildSessionFactory();
+    }
+
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
     }
 }

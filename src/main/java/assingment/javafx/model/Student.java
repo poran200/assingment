@@ -1,4 +1,4 @@
-package model;/*
+package assingment.javafx.model;/*
  * @created 7/11/2021
  *
  * @Author Poran chowdury
@@ -17,9 +17,9 @@ public class Student implements Serializable {
     private String lastName;
     @ManyToOne
     private Class aClass;
+
     public Student() {
     }
-
 
 
     public Student(String firstName, String lastName) {

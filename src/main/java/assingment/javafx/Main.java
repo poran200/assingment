@@ -1,16 +1,18 @@
-import dao.ClassRepository;
-import dao.StudentRepository;
+package assingment.javafx;
+
+import assingment.javafx.dao.ClassRepository;
+import assingment.javafx.dao.StudentRepository;
+import assingment.javafx.model.Class;
+import assingment.javafx.model.Student;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Class;
-import model.Student;
 
-import java.util.Optional;
+import java.util.Objects;
 
-public class Main  extends Application {
+public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
@@ -38,14 +40,14 @@ public class Main  extends Application {
         classRepository.save(new Class("Class Eight"));
         classRepository.save(new Class("Class Nine"));
         classRepository.save(new Class("Class Ten"));
-        repository.save(new Student("Nabil","Choudury"));
-        repository.save(new Student("Shah","Jalal"));
-        repository.save(new Student("Najmul","Hasan"));
-        repository.save(new Student("Zawad","Zamil"));
+        repository.save(new Student("Nabil", "Choudury"));
+        repository.save(new Student("Shah", "Jalal"));
+        repository.save(new Student("Najmul", "Hasan"));
+        repository.save(new Student("Zawad", "Zamil"));
 //        classRepository.addStudent(1,1);
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("view/Home.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("view/Home.fxml")));
         primaryStage.setTitle("Demo Application");
         primaryStage.setScene(new Scene(root, 1200, 600));
         primaryStage.show();

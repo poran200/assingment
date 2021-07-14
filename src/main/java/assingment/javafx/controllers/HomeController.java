@@ -1,11 +1,13 @@
-package controllers;/*
+package assingment.javafx.controllers;/*
  * @created 7/12/2021
  *
  * @Author Poran chowdury
  */
 
-import dao.ClassRepository;
-import dao.StudentRepository;
+import assingment.javafx.dao.ClassRepository;
+import assingment.javafx.dao.StudentRepository;
+import assingment.javafx.model.Class;
+import assingment.javafx.model.Student;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,8 +16,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import model.Class;
-import model.Student;
 
 import java.net.URL;
 import java.util.List;
@@ -44,21 +44,18 @@ public class HomeController implements Initializable {
     public Button classDeleteButton;
     public Button clearButton;
     public Button classUpdateButton;
-
-
-    StudentRepository studentRepository;
-    ClassRepository classRepository;
     public TableColumn<Class, Integer> roll;
     public TableColumn<Student, String> firstName;
     public TableColumn<Student, String> lastName;
     public TableView<Student> studentTable;
-
-    // student class table view
+    // student class table assingment.javafx.controllers.view
     public TableView<Class> classTableView;
     public TableColumn<Class, Integer> classId;
     public TableColumn<Class, String> className;
     public ObservableList<Student> studentObservableList;
     public ObservableList<Class> studentClassList;
+    StudentRepository studentRepository;
+    ClassRepository classRepository;
 
     public HomeController() {
         this.studentRepository = new StudentRepository();
@@ -161,9 +158,9 @@ public class HomeController implements Initializable {
 
     public void updateClassButtonActionHandler(ActionEvent actionEvent) {
         Class aClass = classTableView.getSelectionModel().getSelectedItem();
-        if (aClass != null){
+        if (aClass != null) {
             String updateClassName = classNameTextBox.getText();
-            classRepository.updateClassName(aClass.getId(),updateClassName);
+            classRepository.updateClassName(aClass.getId(), updateClassName);
             classNameTextBox.clear();
             setClassTableData();
         }
@@ -254,10 +251,10 @@ public class HomeController implements Initializable {
 
     public void studentChoiceListOnmouseClickedActionHandel(MouseEvent mouseEvent) {
 //        if (classTableView.getSelectionModel().getSelectedItem()!=null){
-            System.out.println("student choice box on select");
-            ObservableList<Student> allStudnets = getAllStudnets();
-            allStudnets.forEach(System.out::println);
-            studentChoiceBox.setItems(allStudnets);
+        System.out.println("student choice box on select");
+        ObservableList<Student> allStudnets = getAllStudnets();
+        allStudnets.forEach(System.out::println);
+        studentChoiceBox.setItems(allStudnets);
 //        }
 
     }

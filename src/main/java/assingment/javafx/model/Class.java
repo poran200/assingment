@@ -1,4 +1,4 @@
-package model;/*
+package assingment.javafx.model;/*
  * @created 7/11/2021
  *
  * @Author Poran chowdury
