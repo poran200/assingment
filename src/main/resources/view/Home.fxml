@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="1201.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+    <center>
+        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <tabs>
+                <Tab text="Classes">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="586.0" prefWidth="1199.0">
+                            <children>
+                                <TableView fx:id="studentTable" layoutX="387.0" layoutY="30.0" prefHeight="493.0" prefWidth="317.0">
+                                    <columns>
+                                        <TableColumn id="roll" fx:id="roll" prefWidth="75.0" text="Roll" />
+                                        <TableColumn id="firstName" fx:id="firstName" prefWidth="92.0" text="First Name" />
+                                        <TableColumn id="lastName" fx:id="lastName" prefWidth="145.0" text="Last Name" />
+                                    </columns>
+                                </TableView>
+                                <TableView fx:id="classTableView" layoutX="30.0" layoutY="28.0" prefHeight="487.0" prefWidth="324.0">
+                                    <columns>
+                                        <TableColumn fx:id="classId" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="className" prefWidth="248.0" text="Name" />
+                                    </columns>
+                                </TableView>
+                                <Label layoutX="30.0" layoutY="5.0" prefHeight="17.0" prefWidth="627.0" text="Select an Class the students will be show beside the table And Select an student performe add or remove oparation" />
+                                <TextField fx:id="classNameTextBox" layoutX="785.0" layoutY="179.0" />
+                                <Label layoutX="718.0" layoutY="183.0" text="Class Name" />
+                                <Button fx:id="classCreateButton" layoutX="776.0" layoutY="379.0" mnemonicParsing="false" onAction="#createClassButton" text="Create" />
+                                <Button fx:id="classUpdateButton" layoutX="874.0" layoutY="379.0" mnemonicParsing="false" onAction="#updateClassButtonActionHandler" text="Update" />
+                                <Button layoutX="860.0" layoutY="57.0" mnemonicParsing="false" onAction="#addStudentButtonActionHandeler" text="Add Student" />
+                                <Button layoutX="949.0" layoutY="57.0" mnemonicParsing="false" onAction="#removeStudentButtonActionHandler" text="Remove Student" />
+                                <ChoiceBox fx:id="studentChoiceBox" layoutX="710.0" layoutY="57.0" onMouseClicked="#studentChoiceListOnmouseClickedActionHandel" prefWidth="150.0" />
+                                <Label fx:id="selectclassStatus" layoutX="715.0" layoutY="30.0" prefHeight="17.0" prefWidth="140.0" />
+                                <Label fx:id="statusText" layoutX="902.0" layoutY="23.0" prefHeight="24.0" prefWidth="297.0" />
+                                <Button fx:id="classDeleteButton" layoutX="961.0" layoutY="379.0" mnemonicParsing="false" onAction="#classDeleteButtonActionHandle" text="Delete" />
+                        <Button fx:id="clearButton" layoutX="1037.0" layoutY="379.0" mnemonicParsing="false" onAction="#clearButtonOnActionHandle" text="Clear" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Student">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="allStudentTable" layoutX="58.0" layoutY="38.0" prefHeight="484.0" prefWidth="482.0">
+                                    <columns>
+                                        <TableColumn fx:id="studentRoleColumn" prefWidth="75.0" text="Roll" />
+                                        <TableColumn fx:id="sudentfristNameColumn" prefWidth="131.0" text="Frist Name" />
+                                        <TableColumn fx:id="studnetlastNameColumn" prefWidth="93.0" text="Last  Name" />
+                                        <TableColumn fx:id="studentClassColumn" prefWidth="182.0" text="Class" />
+                                    </columns>
+                                </TableView>
+                                <TextField fx:id="studentFristNameTextBox" layoutX="718.0" layoutY="95.0" />
+                                <TextField fx:id="studnetLastNameTextBox" layoutX="718.0" layoutY="138.0" />
+                                <ChoiceBox fx:id="studentClassChoiceBox" layoutX="718.0" layoutY="183.0" prefWidth="150.0" />
+                                <Label layoutX="627.0" layoutY="99.0" text="Frist Name" />
+                                <Label layoutX="627.0" layoutY="142.0" text="Last Name" />
+                                <Label layoutX="634.0" layoutY="187.0" text="Class" />
+                                <Button fx:id="saveButton" layoutX="718.0" layoutY="312.0" mnemonicParsing="false" onAction="#onStudnetSaveButtonAcitionHandler" text="Save" />
+                                <Button fx:id="updateButton" layoutX="793.0" layoutY="312.0" mnemonicParsing="false" onAction="#studentUpdateButtonActionHandeler" text="Update" />
+                                <Button fx:id="deletedButton" layoutX="874.0" layoutY="312.0" mnemonicParsing="false" onAction="#studnetDeleteButtonActionHandler" text="Deleted" />
+                                <Button layoutX="540.0" layoutY="38.0" mnemonicParsing="false" onAction="#onRefreshButtonActionHandler" text="Refresh" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>
